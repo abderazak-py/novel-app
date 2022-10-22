@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hello/settings.dart';
-import 'home.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'info.dart';
+import 'main.dart';
 
 class Character extends StatelessWidget {
   const Character({Key? key}) : super(key: key);

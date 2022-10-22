@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'info.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'home.dart';
+import 'main.dart';
 
 bool darkMode = false;
 double readSize = 20;
@@ -10,7 +10,7 @@ String fontType = 'Plex';
 Color textColor = Colors.black;
 Color backgroundColor = Colors.white;
 
-void dark() async {
+void dark() {
   if (darkMode == true) {
     textColor = Colors.white;
     backgroundColor = Colors.black;

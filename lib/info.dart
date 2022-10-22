@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hello/settings.dart';
-import 'home.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'main.dart';
 
 class Info extends StatelessWidget {
   const Info({Key? key}) : super(key: key);

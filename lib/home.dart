@@ -6,7 +6,6 @@ import 'package:hello/list.dart';
 import 'package:hello/settings.dart';
 import 'package:hello/world.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Home extends StatefulWidget {
@@ -300,16 +299,4 @@ class _HomeState extends State<Home> {
       fontType = pref.getString('Type') ?? 'Plex';
     });
   }
-}
-
-final Uri _url = Uri.parse('https://www.facebook.com/abderazak0');
-void facebook() async {
-  if (!await launchUrl(_url, mode: LaunchMode.externalApplication))
-    throw 'Could not launch $_url';
-}
-
-final Uri _url1 = Uri.parse('https://www.instagram.com/abderazak_achour/');
-void instagram() async {
-  if (!await launchUrl(_url1, mode: LaunchMode.externalApplication))
-    throw 'Could not launch $_url1';
 }

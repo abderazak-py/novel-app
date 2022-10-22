@@ -14,23 +14,12 @@ class ListCard extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                //fullscreenDialog: true,
                 builder: (BuildContext context) {
                   return ReadPage(room: room,);
                 },
               ),
             ),
 
-        //     Navigator.of(context).push(
-        //   MaterialPageRoute(
-        //     fullscreenDialog: true,
-        //     builder: (context) {
-        //       return ReadPage(
-        //         room: room,
-        //       );
-        //     },
-        //   ),
-        // ),
         child: Padding(
           padding: const EdgeInsets.fromLTRB(30, 20, 30, 0),
           child: Card(

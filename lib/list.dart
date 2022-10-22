@@ -5,7 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'ListCard.dart';
 import 'data.dart';
 import 'info.dart';
-import 'home.dart';
+import 'main.dart';
 
 class List extends StatelessWidget {
   const List({Key? key}) : super(key: key);
@@ -28,105 +28,6 @@ class List extends StatelessWidget {
                     ),
                     backgroundColor: Colors.grey[900],
                   ),
-                  endDrawer: Drawer(
-                    child: ListView(
-                      padding: EdgeInsets.zero,
-                      children: <Widget>[
-                        const DrawerHeader(
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                          ),
-                          child: Center(
-                            child: Text(
-                              'أسرار غابة الخلود',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontFamily: 'changa',
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
-                        ListTile(
-                          title: Text(
-                            'تابعنا على فيسبوك',
-                            style: TextStyle(
-                              color: Colors.grey[700],
-                              fontSize: 20,
-                              fontFamily: 'changa',
-                              fontWeight: FontWeight.bold,
-                            ),
-                            textDirection: TextDirection.rtl,
-                          ),
-                          trailing: const Icon(FontAwesomeIcons.facebook),
-                          onTap: () {
-                            facebook();
-                          },
-                        ),
-                        ListTile(
-                          trailing: const Icon(FontAwesomeIcons.instagram),
-                          title: Text(
-                            'تابعنا على إنستجرام',
-                            style: TextStyle(
-                              color: Colors.grey[700],
-                              fontSize: 20,
-                              fontFamily: 'changa',
-                              fontWeight: FontWeight.bold,
-                            ),
-                            textDirection: TextDirection.rtl,
-                          ),
-                          onTap: () {
-                            instagram();
-                          },
-                        ),
-                        ListTile(
-                          trailing: const Icon(
-                            FontAwesomeIcons.sliders,
-                          ),
-                          title: Text(
-                            'الإعدادات',
-                            style: TextStyle(
-                              color: Colors.grey[700],
-                              fontSize: 20,
-                              fontFamily: 'changa',
-                              fontWeight: FontWeight.bold,
-                            ),
-                            textDirection: TextDirection.rtl,
-                          ),
-                          onTap: () => Navigator.of(context).push(
-                            MaterialPageRoute(
-                              fullscreenDialog: true,
-                              builder: (context) {
-                                return const Settings();
-                              },
-                            ),
-                          ),
-                        ),
-                        ListTile(
-                          trailing: const Icon(FontAwesomeIcons.circleInfo),
-                          title: Text(
-                            'حول العمل',
-                            style: TextStyle(
-                              color: Colors.grey[700],
-                              fontSize: 20,
-                              fontFamily: 'changa',
-                              fontWeight: FontWeight.bold,
-                            ),
-                            textDirection: TextDirection.rtl,
-                          ),
-                          onTap: () => Navigator.of(context).push(
-                            MaterialPageRoute(
-                              fullscreenDialog: true,
-                              builder: (context) {
-                                return const Info();
-                              },
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
                   body: Container(
                       decoration: const BoxDecoration(
                         image: DecorationImage(
@@ -138,7 +39,7 @@ class List extends StatelessWidget {
                         children: [
                           Expanded(
                             child: ListView(
-                              children: [...allChapter.map((e) => ListCard(room: e))],
+                              children: [...allChapter.map((index) => ListCard(room: index))],
                             ),
                           ),
                           const AdBanner(),
