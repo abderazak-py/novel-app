@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hello/banner%20ad%20model.dart';
 import 'package:hello/settings.dart';
-import 'main.dart';
 import 'chapters data.dart';
-import 'info.dart';
 
 class ReadPage extends StatefulWidget {
   const ReadPage({Key? key, required this.room}) : super(key: key);
@@ -23,9 +20,7 @@ class _ReadPageState extends State<ReadPage> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Builder(
+    return Builder(
         builder: (context) => Scaffold(
           backgroundColor: backgroundColor,
           appBar: AppBar(
@@ -83,7 +78,7 @@ class _ReadPageState extends State<ReadPage> {
             ],
           ),
         ),
-      ),
-    );
+      )
+    ;
   }
 }

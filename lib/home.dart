@@ -7,6 +7,7 @@ import 'package:hello/settings.dart';
 import 'package:hello/world.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'select_page_card.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -171,114 +172,19 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                     ),
-                    GestureDetector(
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          //fullscreenDialog: true,
-                          builder: (context) {
-                            return const List();
-                          },
-                        ),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 30, vertical: 10),
-                        child: Card(
-                          child: Padding(
-                            padding: const EdgeInsets.all(3.0),
-                            child: ListTile(
-                              title: Center(
-                                  child: Text(
-                                'إقرأ الرواية',
-                                style: TextStyle(
-                                  color: Colors.grey[700],
-                                  fontSize: 20,
-                                  fontFamily: 'changa',
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              )),
-                              trailing: const Icon(
-                                FontAwesomeIcons.book,
-                                size: 30,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
+                    const SelectPageCard(
+                      text: 'إقرأ الرواية',
+                      icon: FontAwesomeIcons.book,
+                      ToPage: List(),
                     ),
-                    GestureDetector(
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          //fullscreenDialog: true,
-                          builder: (BuildContext context) {
-                            return const Character();
-                          },
-                        ),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 30, vertical: 10),
-                        child: Card(
-                          child: Padding(
-                            padding: const EdgeInsets.all(3.0),
-                            child: ListTile(
-                              title: Center(
-                                  child: Text(
-                                'تعرف على الشخصيات',
-                                style: TextStyle(
-                                  color: Colors.grey[700],
-                                  fontSize: 20,
-                                  fontFamily: 'changa',
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              )),
-                              trailing: const Icon(
-                                FontAwesomeIcons.peopleGroup,
-                                size: 30,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          //fullscreenDialog: true,
-                          builder: (BuildContext context) {
-                            return const World();
-                          },
-                        ),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 30, vertical: 10),
-                        child: Card(
-                          child: Padding(
-                            padding: const EdgeInsets.all(3.0),
-                            child: ListTile(
-                              title: Center(
-                                  child: Text(
-                                'العالم و تفاصيله',
-                                style: TextStyle(
-                                  color: Colors.grey[700],
-                                  fontSize: 20,
-                                  fontFamily: 'changa',
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              )),
-                              trailing: const Icon(
-                                FontAwesomeIcons.earthAfrica,
-                                size: 30,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    const SelectPageCard(
+                        text: 'تعرف على الشخصيات',
+                        icon: FontAwesomeIcons.peopleGroup,
+                        ToPage: Character()),
+                    const SelectPageCard(
+                        text: 'العالم و تفاصيله',
+                        icon: FontAwesomeIcons.earthAfrica,
+                        ToPage: World()),
                     const Spacer(),
                     const AdBanner(),
                   ],
