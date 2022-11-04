@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hello/banner%20ad%20model.dart';
-import 'ListCard.dart';
-import 'data.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:hello/models/ad_model.dart';
+import '../widgets/list_item.dart';
+import '../data/data.dart';
 
 class List extends StatelessWidget {
   const List({Key? key}) : super(key: key);

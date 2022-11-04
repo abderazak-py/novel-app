@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:hello/settings.dart';
+import 'package:hello/screens/settings_page.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'info.dart';
-import 'main.dart';
+import '../main.dart';
 
-class Character extends StatelessWidget {
-  const Character({Key? key}) : super(key: key);
+class Info extends StatelessWidget {
+  const Info({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Builder(
+    return Builder(
         builder: (context) => Scaffold(
           appBar: AppBar(
             centerTitle: true,
             title: const Text(
-              'الشخصيات',
+              'حول العمل',
               style: TextStyle(
                 color: Colors.white,
                 fontFamily: 'changa',
@@ -132,7 +129,7 @@ class Character extends StatelessWidget {
                 child: const Padding(
                   padding: EdgeInsets.all(5.0),
                   child: Text(
-                    'الشخصيات',
+                    'معلومات عن المطور',
                     style: TextStyle(
                       color: Colors.black,
                       fontFamily: 'changa',
@@ -150,7 +147,7 @@ class Character extends StatelessWidget {
                     padding: EdgeInsetsDirectional.fromSTEB(8, 5, 8, 0),
                     child: SingleChildScrollView(
                       child: Text(
-                        'قريبا...',
+                        'تمت كتابة القصة و تصميم البرنامج من طرف عاشور عبد الرزاق',
                         textDirection: TextDirection.rtl,
                         style: TextStyle(
                           color: Colors.black,
@@ -165,8 +162,8 @@ class Character extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 }
+
 

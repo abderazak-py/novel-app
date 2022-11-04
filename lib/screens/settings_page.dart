@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'info.dart';
+import 'information_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'main.dart';
+import '../main.dart';
 
 bool darkMode = false;
 double readSize = 20;
@@ -36,9 +36,7 @@ class _SettingsState extends State<Settings> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Builder(
+    return Builder(
         builder: (context) => Scaffold(
             appBar: AppBar(
               centerTitle: true,
@@ -380,7 +378,6 @@ class _SettingsState extends State<Settings> {
                 ),
               ],
             )),
-      ),
-    );
+      );
   }
 }

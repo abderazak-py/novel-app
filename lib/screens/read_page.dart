@@ -1,7 +1,8 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:hello/banner%20ad%20model.dart';
-import 'package:hello/settings.dart';
-import 'chapters data.dart';
+import 'package:hello/models/ad_model.dart';
+import 'package:hello/screens/settings_page.dart';
+import '../models/chapter_model.dart';
 
 class ReadPage extends StatefulWidget {
   const ReadPage({Key? key, required this.room}) : super(key: key);
@@ -25,9 +26,9 @@ class _ReadPageState extends State<ReadPage> {
           backgroundColor: backgroundColor,
           appBar: AppBar(
             centerTitle: true,
-            title: const Text(
-              'صفحة القراءة',
-              style: TextStyle(
+            title: Text(
+              widget.room.name,
+              style: const TextStyle(
                 color: Colors.white,
                 fontFamily: 'changa',
                 fontSize: 20,
@@ -37,22 +38,6 @@ class _ReadPageState extends State<ReadPage> {
           ),
           body: Column(
             children: [
-              Container(
-                color: backgroundColor,
-                alignment: Alignment.center,
-                child: Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: Text(
-                    widget.room.name,
-                    style: TextStyle(
-                      color: textColor,
-                      fontFamily: 'changa',
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ),
               Expanded(
                 child: Container(
                   color: backgroundColor,
@@ -60,15 +45,20 @@ class _ReadPageState extends State<ReadPage> {
                   child: Padding(
                     padding: const EdgeInsetsDirectional.fromSTEB(20, 5, 20, 0),
                     child: SingleChildScrollView(
-                      child: Text(
-                        widget.room.content,
-                        textDirection: TextDirection.rtl,
-                        textAlign: TextAlign.justify,
-                        style: TextStyle(
-                          color: textColor,
-                          fontFamily: fontType,
-                          fontSize: readSize,
-                        ),
+                      child: Column(
+                        children: [
+                          const SizedBox(height: 40),
+                          Text(
+                            widget.room.content,
+                            textDirection: TextDirection.rtl,
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(
+                              color: textColor,
+                              fontFamily: fontType,
+                              fontSize: readSize,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),

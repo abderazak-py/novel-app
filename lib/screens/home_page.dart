@@ -1,10 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:hello/settings.dart';
+import 'package:hello/models/ad_model.dart';
+import 'package:hello/screens/characters_page.dart';
+import 'package:hello/screens/information_page.dart';
+import 'package:hello/screens/list_page.dart';
+import 'package:hello/screens/settings_page.dart';
+import 'package:hello/screens/world_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'main.dart';
+import '../widgets/select_page_card.dart';
 
-class Info extends StatelessWidget {
-  const Info({Key? key}) : super(key: key);
+class Home extends StatefulWidget {
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  void initState() {
+    super.initState();
+    getSelectedPref();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +29,7 @@ class Info extends StatelessWidget {
           appBar: AppBar(
             centerTitle: true,
             title: const Text(
-              'حول العمل',
+              'الصفحة الرئيسية',
               style: TextStyle(
                 color: Colors.white,
                 fontFamily: 'changa',
@@ -123,50 +137,73 @@ class Info extends StatelessWidget {
               ],
             ),
           ),
-          body: Column(
-            children: [
-              Container(
-                color: Colors.white,
-                alignment: Alignment.center,
-                child: const Padding(
-                  padding: EdgeInsets.all(5.0),
-                  child: Text(
-                    'معلومات عن المطور',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontFamily: 'changa',
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
+          body: Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("image/forest1.jpg"),
+                fit: BoxFit.cover,
               ),
-              Expanded(
-                child: Container(
-                  color: Colors.white,
-                  alignment: Alignment.topCenter,
-                  child: const Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8, 5, 8, 0),
-                    child: SingleChildScrollView(
-                      child: Text(
-                        'تمت كتابة القصة و تصميم البرنامج من طرف عاشور عبد الرزاق',
-                        textDirection: TextDirection.rtl,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontFamily: 'Plex',
-                          fontSize: 20,
+            ),
+            child: SafeArea(
+              child: Center(
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Container(
+                        height: 80,
+                      ),
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image.asset(
+                          'image/main.jpg',
+                          width: 330,
+                          fit: BoxFit.cover,
                         ),
                       ),
-                    ),
+                      Container(
+                        margin: const EdgeInsets.symmetric(vertical: 20),
+                        child: const Text(
+                          'Eternity Forest',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 35,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'josef',
+                          ),
+                        ),
+                      ),
+                      const SelectPageCard(
+                        text: 'إقرأ الرواية',
+                        icon: FontAwesomeIcons.book,
+                        ToPage: List(),
+                      ),
+                      const SelectPageCard(
+                          text: 'تعرف على الشخصيات',
+                          icon: FontAwesomeIcons.peopleGroup,
+                          ToPage: Character()),
+                      const SelectPageCard(
+                          text: 'العالم و تفاصيله',
+                          icon: FontAwesomeIcons.earthAfrica,
+                          ToPage: World()),
+                      const AdBanner(),
+                    ],
                   ),
                 ),
               ),
-            ],
+            ),
           ),
         ),
       ),
     );
   }
+
+  getSelectedPref() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    setState(() {
+      darkMode = pref.getBool('Dark') ?? false;
+      readSize = pref.getDouble('Size') ?? 20;
+      fontType = pref.getString('Type') ?? 'Plex';
+    });
+  }
 }
-
-

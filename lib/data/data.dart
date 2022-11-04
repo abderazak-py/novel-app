@@ -1,4 +1,4 @@
-import 'chapters data.dart';
+import '../models/chapter_model.dart';
 
 const Chapter currectChapter = Chapter(
     name: "الفصل الأول",
